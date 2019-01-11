@@ -187,42 +187,7 @@ public class ElevensBoard {
      */
     public boolean isLegal(List<Integer> selectedCards) {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-        for(int i = 2; i < selectedCards.size(); i++)
-        {
-            if((cards[selectedCards.get(i-2)].getValue() == 11) && (cards[selectedCards.get(i-1)].getValue() == 12) &&(cards[selectedCards.get(i)].getValue() == 13) )
-            {
-                return true;
-            }
-            if((cards[selectedCards.get(i-2)].getValue() == 11) && (cards[selectedCards.get(i-1)].getValue() == 13) &&(cards[selectedCards.get(i)].getValue() == 12) )
-            {
-                return true;
-            }
-            if((cards[selectedCards.get(i-2)].getValue() == 12) && (cards[selectedCards.get(i-1)].getValue() == 13) &&(cards[selectedCards.get(i)].getValue() == 11) )
-            {
-                return true;
-            }
-            if((cards[selectedCards.get(i-2)].getValue() == 12) && (cards[selectedCards.get(i-1)].getValue() == 12) &&(cards[selectedCards.get(i)].getValue() == 13) )
-            {
-                return true;
-            }
-            if((cards[selectedCards.get(i-2)].getValue() == 13) && (cards[selectedCards.get(i-1)].getValue() == 11) &&(cards[selectedCards.get(i)].getValue() == 12) )
-            {
-                return true;
-            }
-            if((cards[selectedCards.get(i-2)].getValue() == 13) && (cards[selectedCards.get(i-1)].getValue() == 12) &&(cards[selectedCards.get(i)].getValue() == 11) )
-            {
-                return true;
-            }
-
-            for(int j = i-2; j < i; j++)
-            {
-                if(cards[selectedCards.get(i)].getValue() > 10)
-                {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return containsPairSum11(selectedCards) || containsJQK(selectedCards);
     }
 
     /**
